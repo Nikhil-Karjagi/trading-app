@@ -730,7 +730,10 @@ export default function GamePage() {
                               tickFormatter={(v, i) => i % 15 === 0 ? String(v).slice(5) : ""} />
                             <YAxis tick={{ fill: "#4b5563", fontSize: 9 }} domain={["auto", "auto"]} />
                             <Tooltip contentStyle={{ background: "#111827", border: "1px solid #374151", borderRadius: 8, fontSize: 11 }}
-                              formatter={(v: number | undefined) => [v !== undefined ? `${isUS ? "$" : "₹"}${v.toFixed(2)}` : "Loading...","Price"]} />
+                              formatter={(v: number | undefined) => [
+  v !== undefined ? `${isUS ? "$" : "₹"}${v.toFixed(2)}` : "Loading...", 
+  "Price"
+]} />
                             {ma20 && <ReferenceLine y={ma20} stroke="#f59e0b" strokeDasharray="4 2"
                               label={{ value: "MA20", fill: "#f59e0b", fontSize: 9 }} />}
                             {(isAnim || isDone) && <ReferenceLine x={histData[histData.length - 1]?.time}
